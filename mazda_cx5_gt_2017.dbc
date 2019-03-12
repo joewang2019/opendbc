@@ -136,11 +136,11 @@ BO_ 579 CAM_LKAS: 8 XXX
  SG_ ERR_BIT_1 : 16|1@0+ (1,0) [0|1] "" XXX
  SG_ CHKSUM : 63|8@0+ (1,0) [0|15] "" XXX
  SG_ LINE_NOT_VISIBLE : 19|1@0+ (1,0) [0|1] "" XXX
- SG_ BIT_1 : 29|1@0+ (1,0) [0|1] "" XXX
  SG_ BIT_2 : 33|1@0+ (1,0) [0|1] "" XXX
  SG_ ERR_BIT_2 : 30|1@0+ (1,0) [0|1] "" XXX
- SG_ LDW : 23|1@0+ (1,0) [0|1] "" XXX
  SG_ LKAS_REQUEST : 3|12@0+ (1,-2048) [0|2048] "" XXX
+ SG_ BIT_1 : 29|1@0+ (1,0) [0|1] "" XXX
+ SG_ LDW : 23|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 580 CAM_DISTANCE: 8 XXX
  SG_ S1 : 0|8@1+ (1,0) [0|127] "" XXX
@@ -172,16 +172,16 @@ BO_ 863 CAM_STATUS: 8 XXX
  SG_ FORWARD_COLLISION : 40|8@1+ (1,0) [0|7] "" XXX
 
 BO_ 1157 CAM_SETTINGS: 8 XXX
- SG_ NEW_SIGNAL_1 : 12|1@0+ (1,0) [0|7] "" XXX
  SG_ NEW_SIGNAL_2 : 14|1@0+ (1,0) [0|1] "" XXX
- SG_ LKAS_INERVENTION_ON1 : 15|1@0+ (1,0) [0|1] "" XXX
  SG_ SBS_WARNING_DISTANCE : 25|2@0+ (1,0) [0|127] "" XXX
  SG_ SBS_SCBC : 28|2@0+ (1,0) [0|7] "" XXX
+ SG_ LKAS_ASSIT_TIMING : 13|1@0+ (1,0) [0|1] "" XXX
+ SG_ LKAS_SENSETIVITY : 10|1@0+ (1,0) [0|1] "" XXX
  SG_ ILKAS_NTERVENTION_ON2 : 17|1@0+ (1,0) [0|255] "" XXX
  SG_ LANEE_DEPARTURE_ALERT : 16|2@0+ (1,0) [0|1] "" XXX
- SG_ LKAS_ASSIT_TIMING : 13|1@0+ (1,0) [0|1] "" XXX
+ SG_ LKAS_INERVENTION_ON1 : 15|1@0+ (1,0) [0|1] "" XXX
+ SG_ NEW_SIGNAL_1 : 12|1@0+ (1,0) [0|7] "" XXX
  SG_ WARNING : 11|1@0+ (1,0) [0|1] "" XXX
- SG_ LKAS_SENSETIVITY : 10|1@0+ (1,0) [0|1] "" XXX
 
 BO_ 1160 CAM_Empty3: 8 XXX
  SG_ NEW_SIGNAL_1 : 47|24@0+ (1,0) [0|16777215] "" XXX
@@ -638,8 +638,10 @@ BO_ 512 NEW_MSG_30: 8 XXX
  SG_ NEW_SIGNAL_11 : 63|8@0+ (1,0) [0|255] "" XXX
 
 BO_ 515 MSG_01: 8 XXX
- SG_ CTR : 39|8@0+ (1,0) [0|65535] "" XXX
- SG_ CTR_2 : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ CTR : 39|4@0+ (1,0) [0|65535] "" XXX
+ SG_ CHKSUM : 47|8@0+ (1,0) [0|255] "" XXX
+ SG_ START1 : 6|1@0+ (1,0) [0|1] "" XXX
+ SG_ START2 : 28|5@0+ (1,0) [0|255] "" XXX
 
 BO_ 529 NEW_MSG_36: 8 XXX
  SG_ NEW_SIGNAL_1 : 22|5@0+ (1,0) [0|65535] "" XXX
@@ -714,10 +716,10 @@ BO_ 1425 MSG_19: 8 XXX
 CM_ SG_ 605 PED_BRAKE "3: no brake, 4: brake";
 CM_ SG_ 1157 SBS_WARNING_DISTANCE "1 far, 2 mid, 3 near";
 CM_ SG_ 1157 SBS_SCBC "1 off, 2 on";
-CM_ SG_ 1157 LANEE_DEPARTURE_ALERT "1 off, 2 on";
 CM_ SG_ 1157 LKAS_ASSIT_TIMING "1 at, 0 before";
-CM_ SG_ 1157 WARNING "1 Rare, 0 often";
 CM_ SG_ 1157 LKAS_SENSETIVITY "0 low, 1 high";
+CM_ SG_ 1157 LANEE_DEPARTURE_ALERT "1 off, 2 on";
+CM_ SG_ 1157 WARNING "1 Rare, 0 often";
 CM_ SG_ 1088 LANE_LINES "0 LKAS disabled, 1 no lines, 2 two lines, 3 left line, 4 right line";
 CM_ SG_ 1045 ABS_MALFUNCTION "off: 0, solid: 1, slow blink: 2, fast blink: 3";
 CM_ SG_ 157 CAN_OFF "Disengage Cruise if enabled, if already disabled  TURN it OFF ";
